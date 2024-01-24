@@ -1,4 +1,4 @@
-# JS project details - 
+# TS project details - 
 - Hamburger Navbar
 - change nav link for each section
 - CRUD Notes App with local storage
