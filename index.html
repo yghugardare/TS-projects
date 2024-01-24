@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+    <!-- <script src="./src/style.css"></script> -->
+  </head>
+  <body>
+    <!-- nav bar  -->
+    <nav>
+        <h1>JS Projects</h1>
+        <div class="hamburger">&#9776;</div>
+        <div class="container">
+            <div class="navItems">
+                <a href="#notes" class="active">Notes App</a>
+                <a href="#quiz">Quiz app</a>
+                <a href="#ticTac">Tic Tac Toe</a>
+                <a href="#Dictionary">Dictionary app</a>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar ends -->
+    <!-- section for notes app -->
+    <section id="notes">
+        <div class="notesContainer">
+            <h1>My notes</h1>
+            <!-- form for adding notes -->
+            <form id="noteForm">
+                <input type="text" name="nInp" id="noteInput" placeholder="Enter a new note" required>
+                <button>Add</button>
+            </form>
+            <!-- Display the existing notes -->
+            <div id="viewNotes">
+                <!-- Notes will be added here -->
+            </div>
+        </div>
+    </section>
+    <!-- notes ends here -->
+    <!-- section for quiz app -->
+    <section id="quiz">
+        <div class="quizContainer">
+            <form class="startQuiz ">
+                <h1>Quiz App</h1>
+                <div class="settings">
+                    <label for="noOfQuestions">Enter Number of Questions</label>
+                    <select name="noQ" id="noOfQuestions">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                    </select>
+                    <label for="topic">Enter Topic</label>
+                    <select name="topics" id="topic">
+                        <option value="DSA">DSA</option>
+                        <option value="Web-Development">Web Development</option>
+                        <option value="Python">Python</option>
+                    </select>
+                    <label for="timer">Enter timer</label>
+                    <select name="timer" id="timer">
+                        <option value="10">10 seconds</option>
+                        <option value="30">30 seconds</option>
+                        <option value="60">60 seconds</option>
+                    </select>
+                    <label for="difficulty">Choose Difficulty</label>
+                    <select name="difficulty" id="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                <button id="startBtn" class="btn">Start Quiz</button>
+            </form>
+            <div class="quizQna hide">
+                <div class="timer">
+                    <div class="progress">
+                        <div class="progressBar"></div>
+                        <span class="progressText">60%</span>
+                    </div>
+                </div>
+                <div class="questions">
+                    <h2>Question <span class="currQ">1</span>/<span class="totalQ">5</span></h2>
+                    <p class="questionText">In the Rossini opera, what was??? Lorem ipsum dolorequatur!the lorem100 name of 'The Barber of Seville'?</p>
+                </div>
+                <div class="answers">
+                    <div class="ans">
+                        <span class="text">Answrer</span>
+                        <span class="checkbox">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <div class="ans ">
+                        <span class="text">Answrer</span>
+                        <span class="checkbox">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <div class="ans">
+                        <span class="text">Answrer</span>
+                        <span class="checkbox">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <div class="ans">
+                        <span class="text">Answrer</span>
+                        <span class="checkbox">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <button id="answerSubmitBtn" class="btn submit" disabled>Submit</button>
+                    <button id="nextQuestionBtn" class="btn next">Next</button>
+                </div>
+            </div>
+            <div class="finalResult hide">
+                <h1>Quiz Over🎊🎉</h1>
+                <p>Your Score: </p>
+                <h2 class="yourScore"></h2>
+                <button id="restartBtn" class="btn">Restart Quiz</button>
+            </div>
+        </div>
+    </section>
+    <!-- quiz app ends here -->
+    <!-- tic tac toe starts here -->
+    <section id="ticTac">
+        <div class="ticTacContainer">
+            <h2>Tic Tack Toe Game</h2>
+            <div class="board">
+                <div class="cell" id="0">0</div>
+                <div class="cell" id="1">1</div>
+                <div class="cell" id="2">2</div>
+                <div class="cell" id="3">3</div>
+                <div class="cell" id="4">4</div>
+                <div class="cell" id="5">5</div>
+                <div class="cell" id="6">6</div>
+                <div class="cell" id="7">7</div>
+                <div class="cell" id="8">8</div>
+            </div>
+            <p class="message">It's <span class="turn">X</span>'s turn</p>
+            <button id="resetGame" class="btn">Restart Game</button>
+        </div>
+    </section>
+    <!-- tic tac toe ends here -->
+    <!-- dictionary starts here -->
+    <section id="Dictionary">
+        <div class="dictContainer">
+            <div class="searchWord">
+                <input type="text" placeholder="Search a word here..." id="dictInput">
+                <button id="dictBtn" class="btn">Search</button>
+            </div>
+            <p style="color: rgb(168, 168, 168); margin: 5px 2px;">Search a word to find its meaning!</p>
+            <div class="displayWordDetails">
+                <!-- <div class="wordHeading">
+                    <div class="onlyWord">
+                        <h2 class="dictH2">Word</h2>
+                        <p>Part of Speech</p>
+                    </div>
+                    <button class="wordSound">🔊</button>
+                </div> -->
+                <!-- <hr/>
+                <div class="wordMainBody">
+                    <div class="wordMeaning">
+                        <h3>Meaning-</h3><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quisquam?</p>
+                    </div>
+                    <div class="wordMeaning">
+                        <h3>Meaning-</h3><p>Lorem ipsum dolor sit amet consectetur  Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo officiis dolores illum blanditiis amet deserunt aut, necessitatibus ab sint sunt deleniti vel. Modi placeat eius neque at. Ab minus pariatur nostrum! Illum, atque nemo sequi a totam tenetur eum eligendi odit, voluptate debitis odio, harum omnis neque? Placeat, cupiditate et est, perspiciatis iusto sed voluptatum nulla molestiae harum libero quaerat illum excepturi maiores. Quibusdam nihil autem libero. Quidem facere sunt placeat consequuntur vitae nam maxime recusandae facilis, dolore odit tempora, molestias voluptatibus ut quibusdam corporis animi repudiandae iure laudantium incidunt error nemo! Quia neque harum quisquam cumque animi consectetur ducimus!adipisicing elit. Natus, quisquam?</p>
+                    </div>
+                    <div class="wordMeaning">
+                        <h3>Meaning-</h3><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quisquam?</p>
+                    </div>
+                    <div class="wordMeaning">
+                        <h3>Meaning-</h3><p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto fugit nobis, distinctio facere ab officia qui eum itaque! Ad minima vitae officia, molestiae veniam beatae aliquid repellendus tempore cumque maxime laboriosam quis pariatur voluptate quo, ex ducimus optio id consequatur neque. Ratione deleniti voluptatum cum quos quam, hic veniam placeat! consectetur adipisicing elit. Natus, quisquam?</p>
+                    </div>
+                </div> -->
+                
+            </div>
+        </div>
+    </section>
+    <!-- dictionary ends here -->
+    
+    <script type="module" src="/src/main.ts"></script>
+    <!-- js file have two array of objects, storing quiz 
+    related data -->
+    <!-- <script type="module" src="quizData.js"></script> -->
+
+</body>
+  
+</html>

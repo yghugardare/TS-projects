@@ -1,0 +1,499 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+:root{
+  --bgColor:#1a1625;
+  --secondarybgColor:#46424f;
+  --navBgColor:#2f2b3a;
+  --primaryTextColor:#fff;
+  --secondaryTextColor:#908d96;
+  --btnColor:#ba9ffb;
+  --btnHoverColor:#9171f8;
+  --btnTextColor:var(--bgColor);
+  --navActiveColor:#a688fa;
+  --navActiveBgColor:#1F1D33;
+  --inputBoxColor:#c5bcd7;
+}
+body{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: var(--bgColor);
+  color: var(--primaryTextColor);
+}
+/* styling for nav */
+nav{
+  position: fixed;
+  top:0;
+  width: 100%;
+  z-index:1;
+  height: 12vh;
+  background-color: var(--navBgColor);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;    
+}
+nav>h1{
+  cursor: pointer;
+  margin-left: 5px;
+}
+.hamburger{
+  display: none;
+}
+.navItems{
+  display: flex;
+  gap:2vw
+}
+.navItems>a{
+  padding:15px ;
+  color: var(--primaryTextColor);
+  text-decoration: none;
+
+}
+.navItems>a:hover{
+  color: var(--navActiveColor);
+  background-color: var(--navActiveBgColor);
+  border-radius: 30%;
+  cursor: pointer;
+}
+/* responsive nav bar */
+@media all and (max-width:500px){
+  nav{
+      height: 10vh;
+      /* position: relative; */
+  }
+  .navItems{
+      display: none;
+      
+  }
+  .hamburger{
+      display: block;
+      font-size:xx-large;
+      margin-left: auto;
+      margin-right: 5px;
+  }
+  
+  .container{
+      position: relative;
+  }
+  .show{
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      /* max-height: 100%; */
+      background-color:var(--navBgColor);
+      align-items: center;
+      right: 100%;
+      /* bottom: 10px; */
+      top: -4vh;
+      padding:10px 0;
+      font-size:small;
+      border-radius: 10px;
+  }
+}
+/* changing navbar text based on the section */
+a.active{
+  color: var(--navActiveColor);
+}
+/* navbar related styling ends here */
+section{
+  height: 100vh;
+}
+.h1{
+  position: relative;
+  top: 12vh;
+}
+/* Notes styling here */
+#notes{
+  /* border-bottom: 2px solid red; */
+}
+.notesContainer{
+  position: relative;
+  overflow: auto;
+  max-height:524px ;
+  top: 12vh;
+  max-width: 780px;
+  margin: 0 auto;
+  background-color:var(--secondarybgColor);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  
+}
+.notesContainer>h1{
+  text-align: center;
+  color: var(--btnColor);
+}
+.notesContainer>form{
+  display: flex;
+  column-gap: 2px;
+  /* justify-content: space-between; */
+  margin-top: 20px;
+}
+.notesContainer>form>input[type=text]{
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+  background-color: var(--inputBoxColor);
+}
+.notesContainer>form>button{
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: var(--btnColor);
+  border: none;
+  color: var(--btnTextColor);
+  font-weight: 600;
+}
+.notesContainer>form>button:hover{
+  background-color: var(--btnHoverColor);
+}
+/* for later */
+#viewNotes{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  position: relative;
+  top: 10px;
+}
+.note {
+  min-width: 240px;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 3px;
+  position: relative;
+  max-height: 300px;
+  overflow: auto;
+}
+.note span{
+  clear: both;
+}
+.note .action-buttons {
+  float: right;
+  cursor: pointer;
+}
+
+.bold {
+  font-weight: bold;
+}
+/* responsive notes design */
+@media (max-width: 500px) {
+  #viewNotes{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+      position: relative;
+      top: 10px;
+  }
+  .note {
+      min-width: 150px;
+      font-size: smaller;
+  }    
+}
+/* Quiz section starts here */
+/* utitlity class*/
+.quizContainer>.hide{
+  display: none !important;
+}
+.btn{
+  padding: 8px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: var(--btnColor);
+  border: none;
+  color: var(--btnTextColor);
+  font-weight: 600;
+  font-size: medium;
+  transition: all 0.3s ease-in-out;
+}
+.btn:hover{
+  background-color: var(--btnHoverColor);
+  color: white;
+}
+
+
+/* utility class ends here */
+#quiz>.quizContainer{
+  position:relative;
+  top: 15vh;
+}
+/* startQuiz start */
+.quizContainer>.startQuiz{
+  display: grid;
+  place-items: center;
+  row-gap: 15px;
+  height: 100%;
+  /* border: 2px solid salmon; */
+  
+  max-width: 686px;
+  margin: 0 auto;
+}
+.startQuiz>h1{
+  color: var(--btnColor);
+}
+label{
+  display: block;
+  margin: 15px 0;
+  cursor: pointer;
+  font-size: large;
+  text-transform: capitalize;
+}
+select{
+  text-transform: capitalize;
+  width: 100%;
+  padding: 8px 5px;
+  outline: none;
+  cursor: pointer;
+  background-color: var(--inputBoxColor);
+  border: 2px solid var(--btnColorf);
+  border-radius:5px ;
+  font-weight: 600;
+}
+/* second quiz layout */
+.quizContainer>.quizQna{
+  display: grid;
+  place-items: center;
+  row-gap: 15px;
+  height:100%;
+  /* border: 1px solid lightcyan; */
+  max-width: 686px;
+  margin: 0 auto;
+  overflow-y:auto;
+  /* position: absolute; */
+}
+.timer{
+width: 100%;
+height: 40px; 
+display: flex;
+justify-content: center;
+align-items: center;
+/* border: 1px solid red; */
+
+}
+.timer>.progress{
+  width: 100%;
+  height: 33px;
+  border-radius: 25px;
+  border: 2px solid gray;
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+}
+.timer>.progress>.progressBar{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right,var(--btnHoverColor),var(--btnColor));
+}
+.timer>.progress>.progressText{
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* question styling */
+.questions{
+  /* border:2px solid red; */
+  width: 100%;
+  max-height: 100px;
+
+}
+.questions>h2{
+  padding:0 10px;
+}
+.questions>p{
+  padding:2px 10px;
+  max-height: 70px;
+}
+/* answers stylings */
+.answers{
+  width: 100%;
+  min-height: 300px;
+  overflow-y:auto;
+  /* border: 3px solid green; */
+  display: grid;
+  grid-template-columns: 1fr;
+  /* 20/4 = 5 */
+  row-gap: 5px;
+}
+.answers>.ans{
+  /* 240/4 = 60 */
+  min-height: 50px;
+  
+  border: 2px solid var(--btnColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.text{
+  padding: 0 10px;
+}
+.ans .checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid #3f4868;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin: 0 20px;
+}
+.ans .checkbox i {
+  color: indigo;
+  font-size: 10px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.ans:hover:not(.checked) .checkbox,
+.ans.selected .checkbox {
+  background-color: var(--btnColor);
+}
+.ans.selected .checkbox i {
+  opacity: 1;
+}
+.ans.correct {
+    border-color: #0cef2a;
+}
+.ans.wrong {
+  border-color: #fc3939;
+}
+.btn:disabled {
+  background: #576081;
+  cursor: not-allowed;
+} 
+#answerSubmitBtn .hideBtn{
+  display: none !important;
+}
+#nextQuestionBtn.btn.next {
+  display: none;
+}
+
+
+/* Final result logic */
+.quizContainer>.finalResult{
+  display: grid;
+  place-items: center;
+  height: 100%;
+  row-gap: 30px;
+  border: 2px solid sandybrown;
+  background-color: var(--navBgColor);
+  padding: 50px;
+  /* border: 1px solid lightcyan; */
+  max-width: 500px;
+  margin:60px auto;
+  overflow-y:auto;
+  /* position: absolute; */
+}
+
+/* responsive quiz container related work */
+@media all and (max-width:500px) {
+  #quiz>.quizContainer{
+      position:relative;
+      top : 10vh;
+  }
+  
+  
+  .quizContainer>.finalResult{
+      position: relative;
+      top: 7vh;
+  }
+}
+/* dictionary related styling */
+.dictContainer{
+  position: relative;
+  overflow: auto;
+  max-height:600px ;
+  top: 12vh;
+  max-width: 780px;
+  margin: 0 auto;
+  background-color:var(--secondarybgColor);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.searchWord{
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+.searchWord>input{
+  width: 100%;
+  padding: 10px;
+}
+.searchWord>p{
+  color:var(--secondaryTextColor);
+  
+}
+.wordHeading{
+  display: flex;
+  margin: 10px 0;
+}
+.wordHeading>.onlyWord>p{
+  font-size: 20px;
+  color: var(--secondaryTextColor);
+}
+.wordHeading>.wordSound{
+  font-size:18px;
+  cursor: pointer;
+  margin-left: 8px;
+  width: 25px;
+  height: 30px;
+  background-color: var(--btnHoverColor);
+  border:none;
+  /* border: 1px solid salmon; */
+}
+.wordMeaning{
+  margin:5px 0;
+}
+.dictH2{
+  color: var(--btnColor);
+}
+/* dictionary related stylings ends here */
+/* tic tac toe styling here */
+.ticTacContainer{
+  position: relative;
+  overflow: auto;
+  max-height:524px ;
+  top: 12vh;
+  max-width: 780px;
+  margin: 0 auto;
+  background-color:var(--secondarybgColor);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.board{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+
+}
+.cell{
+  display: grid;
+  place-items: center;
+  font-size: 3.5rem;
+  color: var(--bgColor);
+  width:100px;
+  height: 100px;
+  background-color: var(--inputBoxColor);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.cell:hover{
+  background-color: var(--btnHoverColor);
+}
+.winStyle{
+  background-color: var(--btnHoverColor);
+  color: white;
+}
